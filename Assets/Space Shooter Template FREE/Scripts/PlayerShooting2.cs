@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerShooting1 : MonoBehaviour
+public class PlayerShooting2 : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform firePoint;
