@@ -1,9 +1,12 @@
 using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour
 {
     public int defaultHealthPoint = 3;
     public GameObject explosionPrefab;
+
+    public Action onDead;   // ✅ ĐẶT TRONG CLASS
 
     protected int currentHealth;
 
@@ -28,7 +31,7 @@ public class Health : MonoBehaviour
     {
         if (explosionPrefab != null)
         {
-            GameObject explosion = Instantiate(
+            var explosion = Instantiate(
                 explosionPrefab,
                 transform.position,
                 transform.rotation
@@ -38,5 +41,7 @@ public class Health : MonoBehaviour
         }
 
         Destroy(gameObject);
+
+        onDead?.Invoke();   // ✅ GỌI EVENT
     }
 }
